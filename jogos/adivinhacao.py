@@ -10,14 +10,20 @@ chute = 0
 acertou = False
 maior = False
 
-while acertou == False and tentativas > 0:
-    chute = int (input("Digite o seu numero: "))
+while tentativas > 0:
+    print("Restam {} tentativas".format(tentativas))
+    chute = int (input("Digite um numero entre 1 e 100: "))
     print("Você digitou:", chute)
     acertou = chute == numero_secreto
     maior   = chute > numero_secreto
 
+    if chute < 1 or chute > 100:
+        print("Ops, digite um numero entre 1 e 100")
+        continue
+
     if (acertou):
         print("Você acertou!!!")
+        break
     else:
         tentativas = tentativas - 1
         print("Não foi dessa vez :(")
@@ -25,6 +31,5 @@ while acertou == False and tentativas > 0:
             print("Tente um numero mais baixo!")
         else:
             print("Tente um numero mais alto")
-        print("Restam" ,tentativas , "tentativas")
 
 print("Fim do jogo!")

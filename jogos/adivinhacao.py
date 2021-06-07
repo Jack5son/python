@@ -1,10 +1,12 @@
+import random
 print("################################")
 print("Bem vindo ao jogo de adivinhação!")
 print("################################")
 
 # usuario tem 3 tentativas para execução
 tentativas = 5
-numero_secreto = 28
+numero_secreto = int(round(random.random() * 100))
+
 chute = 0
 
 acertou = False
@@ -23,10 +25,14 @@ while tentativas > 0:
 
     if (acertou):
         print("Você acertou!!!")
+        print("O numero correto é: " + str(numero_secreto))
         break
     else:
         tentativas = tentativas - 1
         print("Não foi dessa vez :(")
+        if (tentativas == 0):
+            print("O numero correto era: " + str(numero_secreto))
+            break
         if(maior):
             print("Tente um numero mais baixo!")
         else:
